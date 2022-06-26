@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,500;1,200&family=Titan+One&display=swap" rel="stylesheet">
+	<title>Todo by Vue</title>
+</head>
+<body>
+	<div id="app" >
+		<div class="wrapper" :class="{themeClass : white}">
+			<a href="https://github.com/Vas11a" target="_blanc" class="github"><img src="github.png" class="git-img" alt=""></a>
+			<h1 class="title">To Do List</h1>
+			<div class="main-todo">
+				<div class="todo-first">
+					<h3 class="first-title">Write note</h3>
+					<textarea 
+					type="text" 
+					v-model="valueInput" 
+					v-bind:placeholder="place"
+					class="input">
+						
+					</textarea>
+
+				
+					<input 
+					type="button"
+					value="Add note" 
+					@click='addTask'
+					class="btn btn-default"
+					:class="{themeClass : white}">
+
+					<input 
+					type="button"
+					value="Clear List" 
+					@click='clearTask'
+					class="btn btn-default"
+					:class="{themeClass : white}">
+
+					<div class="change-tems-block">
+						<div class="blockT">
+							<div class="textT" >Dark theme</div>
+							<div class="radio"  @click="darkT"> <div :class="{ radioAdd : dark}"></div></div>
+						</div>
+						<div class="blockT">
+							<div class="textT" >White theme</div>
+							<div class="radio" @click="whiteT"><div :class="{ radioAdd : white}"></div></div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="todo-sec">	
+					<h2 class="sec-title">Your notes</h2>
+					<div class="note-block" 
+					v-if="notes.length !== 0" 
+					v-for="(note, idx) in notes" 
+					>
+					
+
+						<div class="note" :class="{themesNote : white}">{{note}}</div>
+
+						<input 
+							class="btn-cl btn-default" 
+							type="button"
+							value="x" 
+							@click='clearThis(idx)'
+							:class="{themeClass : white}"
+							>
+					</div>
+					<div v-else>No notes now</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+
+	<script src="https://unpkg.com/vue@3"></script>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
