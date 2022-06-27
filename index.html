@@ -57,8 +57,13 @@
 					v-for="(note, idx) in notes" 
 					>
 					
+					<div class="checkbox"></div>
+					<input type="checkbox" class="cbox">
+					<div class="minus"></div>
+					<div class="note">{{note}}</div>
+			
 
-						<div class="note" :class="{themesNote : white}">{{note}}</div>
+						
 
 						<input 
 							class="btn-cl btn-default" 
