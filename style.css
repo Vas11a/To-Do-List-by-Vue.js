@@ -16,6 +16,7 @@
 	padding: 50px;
 	margin: 0 auto; 
 	min-height: 100vh;
+	position: relative;
 }
 
 .title{
